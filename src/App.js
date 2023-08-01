@@ -1,6 +1,8 @@
 import React from 'react';
 import Counter from './components/Counter';
-
+import Trivia from './components/Trivia';
+import TriviaClue from './components/TriviaClue';
+import TriviaReveal from './components/TriviaReveal';
 import {useEffect} from 'react';
 
   const API_URL = "http://jservice.io/api/random"
@@ -19,12 +21,14 @@ import {useEffect} from 'react';
     }, []);
 
   return(
-    <>
+
     <div className="App">
-      <h1>Hello</h1>
       <Counter />
+      <Trivia />
+      <TriviaClue />
+      <TriviaReveal />
     </div>
-    </>
   );
 }
+
 export default App;
