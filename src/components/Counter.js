@@ -1,8 +1,7 @@
-import {useState} from 'react';
 import React from 'react';
+import {useState} from 'react';
 
-
-function Display(props){
+function Counter(props){
 
     const [count, setCount] = useState(0);
 
@@ -18,10 +17,6 @@ function Display(props){
         setCount(0)
     }
 
-    const trivia = props.trivia;
-    
-    {
-
     return(
         <>
         <div>
@@ -31,18 +26,8 @@ function Display(props){
             <button onClick={increment}>Increase</button>
             <button onClick={reset}>Reset</button>
         </div>
-        <div>
-            <h2>Let's Play!</h2>
-            <button onClick={trivia.question}>Get Question</button>
-            <h3>Category: {trivia.category.title}</h3>
-            <h4>Points: {trivia.value} </h4>
-        </div>
-        <div>
-            <h4>Answer:{trivia.answer}</h4>
-            <button onClick={trivia.question}>Click to Reveal Question</button>
-        </div>
         </>
     )
-}}
+}
 
-export default Display;
+export default Counter;

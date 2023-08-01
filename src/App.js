@@ -1,25 +1,30 @@
 import React from 'react';
-import Display from './components/Display';
-import {useState} from 'react';
+import Counter from './components/Counter';
 
+import {useEffect} from 'react';
 
-function App() {
-  const [trivia, setTrivia] = useState({});
+  const API_URL = "http://jservice.io/api/random"
 
-  const GetTrivia = async () => {
-    const response = await fetch (
-      'http://jservice.io/api/random'
-    )
-    const data = await response.json();
-    setTrivia(data);
-  }
-  return (
+  const App = () => {
+
+    const randomTrivia = async (question) => {
+        const response = await fetch(`${API_URL}`);
+        const data = await response.json();
+
+        console.log(data);
+    }
+
+    useEffect(() => {
+        randomTrivia('Wine');
+    }, []);
+
+  return(
+    <>
     <div className="App">
-      <h1>Hello React</h1>
-      <Display trivia ={GetTrivia} />
-
+      <h1>Hello</h1>
+      <Counter />
     </div>
+    </>
   );
 }
-
 export default App;
